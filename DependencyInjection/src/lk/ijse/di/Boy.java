@@ -1,6 +1,6 @@
 package lk.ijse.di;
 
-public class Boy {
+public class Boy implements DI{
     //What is DI.?
     // A mechanism of applying dependencies in a meaningful way
 
@@ -23,10 +23,13 @@ public class Boy {
 //        this.g=g;
 //    }
 
-    public void setInjection(Girl girl){// setter method injection
-       //if we set a dependency using a setter method that is known as Setter Method injection
-        g=girl;
-    }
+//    public void setInjection(Girl girl){// setter method injection
+//       //if we set a dependency using a setter method that
+//        // is known as Setter Method injection
+//        g=girl;
+//    }
+
+
 
     public void cattingWithGirl(){
         //Loos Coupling Applied
@@ -34,11 +37,17 @@ public class Boy {
     }
 
 
-
+    @Override
+    public void setInjection(Girl girl) {
+        //Interface Through Injection
+        this.g=girl;
+    }
 
 
     public static void main(String[] args) {
         Boy boy = new Boy();
         boy.cattingWithGirl();
     }
+
+
 }
